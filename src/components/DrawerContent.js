@@ -3,13 +3,16 @@ import {View, StyleSheet} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switch} from 'react-native-paper'
 import Icon from 'react-native-ionicons';
+import {AuthContext} from '../contexts/AuthContext';
+import Feather from 'react-native-vector-icons/Feather';
 
-
-export function DrawerContent(props, navigation) {
+export function DrawerContent(props) {
     const [isDarkTheme, setIsDarkTheme] = React.useState(false);
     const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
     }
+
+    const {signOut} = React.useContext(AuthContext);
 
     return(
         <View style={{flex: 1}}>
@@ -24,8 +27,8 @@ export function DrawerContent(props, navigation) {
                                 }}
                                 size={50}
                             /> */}
-                            <Icon
-                                name= "person"
+                            <Feather
+                                name= "user"
                                 color={'#009387'}
                                 size={49}
                             />
@@ -51,7 +54,7 @@ export function DrawerContent(props, navigation) {
                     <Drawer.Section style={styles.drawerSection}>
                         <DrawerItem
                             icon={({color, size}) => (
-                                <Icon
+                                <Feather
                                     name= "home"
                                     color={color}
                                     size={size}
@@ -62,8 +65,8 @@ export function DrawerContent(props, navigation) {
                         />
                         <DrawerItem
                             icon={({color, size}) => (
-                                <Icon
-                                    name= "contact"
+                                <Feather
+                                    name= "smile"
                                     color={color}
                                     size={size}
                                 />
@@ -73,8 +76,8 @@ export function DrawerContent(props, navigation) {
                         />
                         <DrawerItem
                             icon={({color, size}) => (
-                                <Icon
-                                    name= "cog"
+                                <Feather
+                                    name= "settings"
                                     color={color}
                                     size={size}
                                 />
@@ -84,8 +87,8 @@ export function DrawerContent(props, navigation) {
                         />
                         <DrawerItem
                             icon={({color, size}) => (
-                                <Icon
-                                    name= "code-working"
+                                <Feather
+                                    name= "code"
                                     color={color}
                                     size={size}
                                 />
@@ -111,14 +114,14 @@ export function DrawerContent(props, navigation) {
             <Drawer.Section style={styles.bottomDrawerSection}>
                 <DrawerItem
                     icon={({color, size}) => (
-                        <Icon
-                            name= "exit"
+                        <Feather
+                            name= "log-out"
                             color={color}
                             size={size}
                         />
                     )}    
                     label="Sign Out"
-                    onPress={() => {}}
+                    onPress={() => {signOut()}}
                 />
             </Drawer.Section>
         </View>
