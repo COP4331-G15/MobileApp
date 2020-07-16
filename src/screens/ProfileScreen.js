@@ -14,39 +14,26 @@ var getUsername = async () => {
   try {
     username = await AsyncStorage.getItem('@username_Key')
     if (username === null) {
-      Alert.alert('error on username retrieval')
+      Alert.alert('error on username retrieval');
     }
   } catch (e) {
-    Alert.alert('failure')
+    Alert.alert('failure');
   }
 }
 
 var getEmail = async () => {
   try {
-    email = await AsyncStorage.getItem('@email_Key')
+    email = await AsyncStorage.getItem('@email_Key');
     if (email === null) {
-      Alert.alert('error on email retrieval')
+      Alert.alert('error on email retrieval');
     }
   } catch (e) {
-    Alert.alert('failure')
+    Alert.alert('failure');
   }
 }
 
-var call = (num) => {
-  return 1;
-}
-
-var usernameSync = (func) => {
-  let num = 5
-  function callBack(num)
-  {
-    func(num);
-  }
-
-  getUsername();
-}
-
-usernameSync(call(1))
+getUsername();
+getEmail();
 
 export function ProfileScreen({navigation, props, token}){
   return (
