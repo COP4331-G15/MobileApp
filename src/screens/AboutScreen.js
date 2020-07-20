@@ -18,8 +18,8 @@ export function AboutScreen({route, navigation}){
     />
       <Text style={styles.descriptionText}>
         Meridian is a money management application that
-        allows users to create, read from, update, and
-        delete groups that contain other users that have
+        allows users to create, read from, and update
+        groups that contain other users that have
         a financial relationship to the original user.
         </Text>
         <Text style = {styles.descriptionText}>
