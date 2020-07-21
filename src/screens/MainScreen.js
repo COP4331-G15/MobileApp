@@ -8,6 +8,7 @@ import cloneDeep from 'lodash/cloneDeep';
 const BASE_URL = 'https://cop4331-test-2.herokuapp.com/draftapi/user/';
 
 global.userId = null;
+global.groups = null;
 
 export function MainScreen({route, navigation}) {
   // Set the groups variable
@@ -29,6 +30,7 @@ export function MainScreen({route, navigation}) {
 
   global.userId = user.id;
   global.token = token;
+  
 
   // Retrieve groups
   const handleGroup = async () => {
@@ -56,6 +58,9 @@ export function MainScreen({route, navigation}) {
       else {
         //setGroups(cloneDeep(res.groups));
         setGroups(res.groups);
+        global.groups = res.groups;
+        // console.log('Main screen, global.groups = ');
+        // console.log(global.groups.length);
 
       }
     } catch (e) {
@@ -85,3 +90,4 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
