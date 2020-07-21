@@ -249,6 +249,15 @@ const RegisterScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <Feather
+        style={styles.closeIcon}
+        name={'x-circle'}
+        color="#009387"
+        size={30}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
       {/*Show Status bar on top of the screen*/}
       <StatusBar backgroundColor="#1B1921" barstyle="light-content" />
 
