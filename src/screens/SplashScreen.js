@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-ionicons';
 import * as Animatable from 'react-native-animatable';
 import Feather from 'react-native-vector-icons/Feather';
-import { Bold } from 'react-feather';
+import { Bold, CornerUpLeft } from 'react-feather';
 
 
 const SplashScreen = ({navigation}) => {
@@ -16,7 +16,7 @@ const SplashScreen = ({navigation}) => {
                     duraton="1500"
                     source={require('../../assets/logo.png')}
                     style={styles.logo}
-                    resizeMode='stretch'
+                    resizeMode='contain'
                 />
             </View>
             <Animatable.View style={styles.footer} animation="fadeInUpBig">
@@ -25,11 +25,11 @@ const SplashScreen = ({navigation}) => {
                 < View style={styles.button}>
                 <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
                     <LinearGradient
-                        colors={['#1B1921', '#1B1921']}
+                        colors={['white', 'white']}
                         style={styles.signIn}
                     >
                     <Text style={styles.textSign}>Get Started  </Text>
-                    <Feather name="arrow-right" color="#fff" size={20}/>
+                    <Feather name="arrow-right" color="black" size={20}/>
                     </LinearGradient>
                 </TouchableOpacity>
                 </View>
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
   title: {
       color: '#fff',
       fontSize: 24,
-      fontWeight: 'bold',
   },
   text: {
       color: 'white',
@@ -84,10 +83,12 @@ const styles = StyleSheet.create({
       height: 40,
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'row'
+      flexDirection: 'row',
+      borderTopLeftRadius: 15,
+      borderTopRightRadius: 15,
   },
   textSign: {
-      color: 'white',
+      color: 'black',
       fontSize: 15,
       fontWeight: 'bold'
   }
