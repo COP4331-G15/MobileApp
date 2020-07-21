@@ -9,6 +9,7 @@ const BASE_URL = 'https://cop4331-test-2.herokuapp.com/draftapi/user/';
 
 global.userId = null;
 global.groups = null;
+global.groupsLength = null;
 
 export function MainScreen({route, navigation}) {
   // Set the groups variable
@@ -59,6 +60,7 @@ export function MainScreen({route, navigation}) {
         //setGroups(cloneDeep(res.groups));
         setGroups(res.groups);
         global.groups = res.groups;
+        global.groupsLength = res.groups.length;
         // console.log('Main screen, global.groups = ');
         // console.log(global.groups.length);
 
@@ -90,4 +92,3 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
-
