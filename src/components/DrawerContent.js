@@ -16,7 +16,6 @@ import {AuthContext} from '../contexts/AuthContext';
 import Feather from 'react-native-vector-icons/Feather';
 
 export function DrawerContent(props) {
-
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
@@ -25,7 +24,6 @@ export function DrawerContent(props) {
   const {signOut} = React.useContext(AuthContext);
 
   const token = global.userTokenConst;
-
 
   // Decode the token
   var jwt_decode = require('jwt-decode');
@@ -37,6 +35,13 @@ export function DrawerContent(props) {
     username: decoded.name,
     email: decoded.email,
   };
+
+
+  let groupConst = 0;
+  if (global.groups.length != null)
+  {
+    groupConst = global.groups.length;
+  }
 
   return (
     <View style={{flex: 1}}>
@@ -54,16 +59,16 @@ export function DrawerContent(props) {
             <View style={styles.row}>
               <View style={styles.section}>
                 <Paragraph style={[styles.paragraph, styles.caption]}>
-                  6
+                {groupConst}
                 </Paragraph>
                 <Caption style={styles.caption}>Groups</Caption>
               </View>
-              <View style={styles.section}>
+              {/* <View style={styles.section}>
                 <Paragraph style={[styles.paragraph, styles.caption]}>
                   34
                 </Paragraph>
                 <Caption style={styles.caption}>Connections</Caption>
-              </View>
+              </View> */}
             </View>
           </View>
 
@@ -86,7 +91,7 @@ export function DrawerContent(props) {
                 props.navigation.navigate('Profile');
               }}
             />
-            <DrawerItem
+            {/* <DrawerItem
               icon={({color, size}) => (
                 <Feather name="settings" color={color} size={size} />
               )}
@@ -94,7 +99,7 @@ export function DrawerContent(props) {
               onPress={() => {
                 props.navigation.navigate('Settings');
               }}
-            />
+            /> */}
             <DrawerItem
               icon={({color, size}) => (
                 <Feather name="code" color={color} size={size} />
@@ -151,13 +156,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   caption: {
-    fontSize: 13,
+    fontSize: 14,
     marginTop: 0,
     lineHeight: 14,
   },
   row: {
     marginTop: 20,
-    marginLeft: 7,
+    marginLeft: 17,
     flexDirection: 'row',
     alignItems: 'center',
   },
