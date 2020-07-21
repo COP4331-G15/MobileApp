@@ -38,9 +38,10 @@ export function DrawerContent(props) {
 
 
   let groupConst = 0;
-  if (global.groups.length != null)
+  // console.log(global.groups.length);
+  if (global.groupsLength != null)
   {
-    groupConst = global.groups.length;
+    groupConst = global.groupsLength;
   }
 
   return (
