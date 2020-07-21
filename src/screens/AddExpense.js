@@ -28,16 +28,17 @@ export function AddExpense({route, navigation}) {
 
   const members = global.members;
 
-  console.log('User ID = ' + user.id);
-  console.log('Group ID = ' + global.groupId);
-  console.log('Members: ');
-  console.log(members);
+  // console.log('User ID = ' + user.id);
+  // console.log('Group ID = ' + global.groupId);
+  // console.log('Members: ');
+  // console.log(members);
 
-  const [selectedMember, setSelectedMember] = useState('');
+  const [selectedMember, setSelectedMember] = useState(global.members[0].id);
   const [userValues] = useState(members);
 
-  console.log('UserValues are => ');
-  console.log(userValues);
+  // console.log('UserValues are => ');
+  // console.log(userValues);
+  // console.log(global.members[0].id);
 
   let myUsers;
 
